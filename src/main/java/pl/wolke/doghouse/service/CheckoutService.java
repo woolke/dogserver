@@ -1,10 +1,10 @@
 package pl.wolke.doghouse.service;
 
 import org.springframework.stereotype.Service;
-import pl.wolke.doghouse.dao.CustomerRepository;
+import pl.wolke.doghouse.config.security.UserRepository;
 import pl.wolke.doghouse.dto.Purchase;
 import pl.wolke.doghouse.dto.PurchaseResponse;
-import pl.wolke.doghouse.entity.User;
+import pl.wolke.doghouse.config.security.User;
 import pl.wolke.doghouse.entity.Order;
 import pl.wolke.doghouse.entity.OrderItem;
 
@@ -15,9 +15,9 @@ import java.util.UUID;
 @Service
 public class CheckoutService {
 
-    private CustomerRepository customerRepository;
+    private UserRepository customerRepository;
 
-    public CheckoutService(CustomerRepository customerRepository) {
+    public CheckoutService(UserRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 

@@ -6,7 +6,7 @@ import pl.wolke.doghouse.dto.Purchase;
 import pl.wolke.doghouse.dto.PurchaseResponse;
 import pl.wolke.doghouse.service.CheckoutService;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {

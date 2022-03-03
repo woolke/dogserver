@@ -21,6 +21,9 @@ public class ProductCategory {
     @Column(name = "category_name")
     private String categoryName;
 
+    @Column(name = "font_icon")
+    private String iconClassName = "fa fa-barcode";
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
 

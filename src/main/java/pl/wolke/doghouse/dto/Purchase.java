@@ -1,6 +1,7 @@
 package pl.wolke.doghouse.dto;
 
 import lombok.Data;
+import pl.wolke.doghouse.config.security.User;
 import pl.wolke.doghouse.entity.*;
 
 import java.util.Set;

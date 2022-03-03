@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import pl.wolke.doghouse.config.security.User;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

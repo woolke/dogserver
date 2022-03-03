@@ -12,9 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import pl.windykacjasamochodowa.app.security.jwt.AuthEntryPointJwt;
-import pl.windykacjasamochodowa.app.security.jwt.AuthTokenFilter;
-import pl.windykacjasamochodowa.app.services.VindicatorServiceImpl;
+import pl.wolke.doghouse.config.security.jwt.AuthEntryPointJwt;
+import pl.wolke.doghouse.config.security.jwt.AuthTokenFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -24,7 +23,7 @@ import pl.windykacjasamochodowa.app.services.VindicatorServiceImpl;
 		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
-	VindicatorServiceImpl userDetailsService;
+	UserServiceImpl userDetailsService;
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -57,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable()
 			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+			.authorizeRequests().antMatchers("/api/auth/**", "/api/jpk/**" ).permitAll()
 			.antMatchers("/api/test/**").permitAll()
 			.anyRequest().authenticated();
 

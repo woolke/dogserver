@@ -8,7 +8,7 @@ import pl.wolke.doghouse.entity.State;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RepositoryRestResource
 public interface StateRepository extends JpaRepository<State, Integer> {
 
