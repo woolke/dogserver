@@ -85,7 +85,14 @@ public class StaticFunc {
         } catch (Exception e) {
             return getDateFromStringRRRR_MM_DD("1900-01-01");
         }
+    }
 
+    public static Date parseDateFromString(String stringDate, SimpleDateFormat sdf) {
+        try {
+            return sdf.parse(stringDate);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static Date parseDateOrNullFromString(String stringDate) {

@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static java.util.Calendar.*;
+import static pl.wolke.doghouse.utils.StaticFunc.parseDateFromString;
 
 @Setter
 @Getter
@@ -45,12 +46,8 @@ public class CalendarEvent {
 
     public CalendarEvent(CalendarEventDto dto) {
         this.id = dto.getId();
-        try {
-            this.dateFrom = sdf.parse(dto.getDateFrom());
-            this.dateTo = sdf.parse(dto.getDateTo());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.dateFrom = parseDateFromString(dto.getDateFrom(), sdf);
+        this.dateTo = parseDateFromString(dto.getDateTo(), sdf);
         this.color = dto.getColor();
         this.commonKey = dto.getCommonKey();
         this.allDay = dto.isAllDay();
